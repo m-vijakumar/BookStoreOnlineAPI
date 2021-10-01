@@ -11,6 +11,8 @@ namespace BookStoreOnlineAPI.Controllers
 {
     [Route("api/books")]
     [ApiController]
+
+    //Books Controller manages all BookApis
     public class BookController : ControllerBase
     {
         private readonly IBookService _services;
@@ -37,6 +39,15 @@ namespace BookStoreOnlineAPI.Controllers
                 return BadRequest();
             }
             return book;
+        }
+
+        [Route("{BookId}")]
+        [HttpGet]
+        public async Task<ActionResult<BookReadDto>> BookDetails(int BookId)
+        {
+            BookReadDto book = await _services.BookDeatails(BookId);
+            return book;
+
         }
 
     }

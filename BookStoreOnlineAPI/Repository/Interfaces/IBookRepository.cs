@@ -11,5 +11,7 @@ namespace BookStoreOnlineAPI.Repository.Interfaces
         bool SaveChanges();
         IEnumerable<Book> GetBooks();
         void Create(Book book);
+
+        Book GetBookDetails(int BookId);
     }
 }

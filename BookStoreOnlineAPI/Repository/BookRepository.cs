@@ -25,6 +25,11 @@ namespace BookStoreOnlineAPI.Repository
             _context.Book.AddAsync(book);
         }
 
+        public Book GetBookDetails(int BookId)
+        {
+           return _context.Book.Find(BookId);
+        }
+
         public IEnumerable<Book> GetBooks()
         {
             return _context.Book.ToList();

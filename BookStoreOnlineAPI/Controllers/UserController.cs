@@ -38,5 +38,14 @@ namespace BookStoreOnlineAPI.Controllers
             }
             return user;
         }
+
+        [HttpGet]
+        [Route("validateUserName/{UserName}")]
+        public async Task<ActionResult<bool>> ValidateUserName(string UserName)
+        {
+           bool user = await _services.CheckUserAvailabity(UserName);
+
+            return user;
+        }
     }
 }

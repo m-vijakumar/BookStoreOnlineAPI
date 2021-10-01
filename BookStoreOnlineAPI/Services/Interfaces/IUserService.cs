@@ -10,5 +10,8 @@ namespace BookStoreOnlineAPI.Services.Interfaces
     {
         Task<IEnumerable<UserReadDto>> GetUsers();
         Task<UserReadDto> Create(UserCreateDto userCreateDto);
+        Task<UserReadDto> AuthenticateUser(UserLoginDto loginData);
+        Task<bool> CheckUserAvailabity(string UserName);
+        Task<bool> isUserExists(int UserId);
     }
 }

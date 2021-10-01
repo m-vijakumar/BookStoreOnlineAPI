@@ -15,5 +15,7 @@ namespace BookStoreOnlineAPI.Repository
 
         public DbSet<User> User { get; set; }
         public DbSet<Book> Book { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
     }
 }

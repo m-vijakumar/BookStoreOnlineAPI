@@ -2,18 +2,17 @@
 using BookStoreOnlineAPI.Models.Dtos;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStoreOnlineAPI.Models.Profiles
 {
-    public class UserProfiles :Profile
+    public class CartProfiles :Profile
     {
-        public UserProfiles()
+        public CartProfiles()
         {
-            CreateMap<User, UserReadDto>();
-            CreateMap<UserCreateDto ,User > ();
-            CreateMap< UserLoginDto,User>();
+            CreateMap<CartCreateDto, Cart>();
         }
     }
 }

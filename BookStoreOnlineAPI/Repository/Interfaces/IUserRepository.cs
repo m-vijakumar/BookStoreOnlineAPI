@@ -1,4 +1,5 @@
 ﻿using BookStoreOnlineAPI.Models;
+using BookStoreOnlineAPI.Models.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace BookStoreOnlineAPI.Repository.Interfaces
         bool SaveChanges();
         IEnumerable<User> GetUsers();
         void Create(User user);
+        User AuthenticateUser(User loginData);
+        bool CheckUserAvailabity(string UserName);
+        bool isUserExists(int UserId);
     }
 }

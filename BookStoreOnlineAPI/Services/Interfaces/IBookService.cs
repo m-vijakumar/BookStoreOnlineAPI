@@ -10,5 +10,7 @@ namespace BookStoreOnlineAPI.Services.Interfaces
     {
         Task<IEnumerable<BookReadDto>> GetBooks();
         Task<BookReadDto> Create(BookCreateDto bookCreateDto);
+
+        Task<BookReadDto> BookDeatails(int BookId);
     }
 }

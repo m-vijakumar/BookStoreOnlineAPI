@@ -20,6 +20,16 @@ namespace BookStoreOnlineAPI.Services
             _repository = repository;
             _mapper = mapper;
         }
+
+        public Task<BookReadDto> BookDeatails(int BookId)
+        {
+            
+            Book book = _repository.GetBookDetails(BookId);
+
+            return Task.Run(() => _mapper.Map<BookReadDto>(book));
+
+        }
+
         public Task<BookReadDto> Create(BookCreateDto bookCreateDto)
         {
             Book book = _mapper.Map<Book>(bookCreateDto);

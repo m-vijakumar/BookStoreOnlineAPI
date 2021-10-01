@@ -14,6 +14,29 @@ namespace BookStoreOnlineAPI.Repository
         {
             _context = context;
         }
+
+        public User AuthenticateUser(User loginData)
+        {
+            User user = new User();
+            var userDetails = _context.User.FirstOrDefault(
+                u => u.UserName == loginData.UserName && u.Password == loginData.Password
+                );
+            if (userDetails != null)
+            {
+
+                user = new User
+                {
+                    UserName = userDetails.UserName,
+                    UserId = userDetails.UserId,
+                };
+                return user;
+            }
+            else
+            {
+                return userDetails;
+            }
+        }
+
         public void Create(User user)
         {
             if (user == null)
@@ -26,6 +49,34 @@ namespace BookStoreOnlineAPI.Repository
         public IEnumerable<User> GetUsers()
         {
             return _context.User.ToList();
+        }
+
+        public bool CheckUserAvailabity(string UserName)
+        {
+            string user = _context.User.FirstOrDefault(x => x.UserName == UserName)?.ToString();
+
+            if (user != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool isUserExists(int UserId)
+        {
+            string user = _context.User.FirstOrDefault(x => x.UserId == UserId)?.ToString();
+
+            if (user != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool SaveChanges()
